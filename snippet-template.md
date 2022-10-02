@@ -1,21 +1,45 @@
 ---
-title: Function name
-tags: array
+title: Model
+tags: model, NodeJS
 expertise: intermediate
 firstSeen: 2021-06-13T05:00:00-04:00
 ---
 
-Explain briefly what the snippet does.
+Creates backend API models.
 
-- Explain briefly how the snippet works.
-- Use bullet points for your snippet's explanation.
-- Try to explain everything briefly but clearly.
+- Input all fields of your model with correct type.
+- Connects other models to this model.
 
 ```js
-const functionName = arguments =>
-  {functionBody}
+const mongoose = require("mongoose");
+
+const modelNameSchema = new mongoose.Schema({
+  differentModelID: {
+    type: mongoose.Schema.ObjectId,
+    ref: "differentModel",
+  },
+  anotherField: {
+    type: String,
+    trim: true,
+  },
+});
 ```
 
 ```js
-functionName('sampleInput'); // 'sampleOutput'
+const mongoose = require("mongoose");
+
+const classSchema = new mongoose.Schema({
+  teacherID: {
+    type: mongoose.Schema.ObjectId,
+    ref: "teacher",
+  },
+  className: {
+    type: String,
+    trim: true,
+  },
+  numStudents: {
+    type: Number,
+    trim: true,
+  },
+});
 ```
